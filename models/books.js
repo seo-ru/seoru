@@ -38,6 +38,7 @@ export default function (sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'books'
+    tableName: 'books',
+    timestamps: false
   });
 }
