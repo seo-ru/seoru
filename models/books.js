@@ -1,6 +1,4 @@
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
+export default function (sequelize, DataTypes) {
   return sequelize.define('books', {
     id: {
       type: DataTypes.INTEGER(11),
@@ -28,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     published_year: {
-      type: "YEAR(4)",
+      type: 'YEAR(4)',
       allowNull: true
     },
     call_number: {
@@ -42,4 +40,4 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     tableName: 'books'
   });
-};
+}
