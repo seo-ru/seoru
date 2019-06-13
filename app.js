@@ -6,7 +6,8 @@ import logger from 'morgan';
 import path from 'path';
 // import favicon from 'serve-favicon';
 
-import index from './routes/index';
+import indexRouter from './routes/index';
+import searchRouter from './routes/search';
 
 const app = express();
 const debug = Debug('seoru:app');
@@ -27,7 +28,8 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+app.use('/', indexRouter);
+app.use('/search', searchRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
