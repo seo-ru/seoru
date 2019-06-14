@@ -7,10 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1><%= books[0].title %></h1>
-    <h1><%= books[1].title %></h1>
-    <h1><%= books[2].title %></h1>
-    <h1><%= books[3].title %></h1>
-    <h1><%= books[4].title %></h1>
+<% for(var i = 0; i < books.length; i++) { %>
+    <h1><%= books[i].title %></h1>
+    <% } %>
 </body>
 </html>

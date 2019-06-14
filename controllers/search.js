@@ -33,7 +33,7 @@ function getBooks(req, res) {
       ]
     },
     offset: 0,
-    limit: 10
+    limit: 3
   }).then(books => res.render('search', {
     books
   })
