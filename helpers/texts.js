@@ -1,9 +1,9 @@
-function splitQuery(text) {
-  return text.replace(/^\s+|\s+$/g, '').replace(/\s+/g, ' ').split(' ');
+function removeDuplicateSpace(text) {
+  return text.replace(/^\s+|\s+$/g, '').replace(/\s+/g, ' ');
 }
 
-function splitQueryToWildcard(text) {
-  return text.replace(/^\s+|\s+$/g, '').replace(/\s+/g, '%');
+function spaceToWildcard(text) {
+  return text.replace(/\s+/g, '%');
 }
 
-export { splitQuery, splitQueryToWildcard };
+export { removeDuplicateSpace, spaceToWildcard };

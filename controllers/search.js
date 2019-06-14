@@ -1,12 +1,12 @@
 import sequelize from 'sequelize';
 
 import models from '../models';
-import { splitQueryToWildcard } from '../helpers/texts';
+import { removeDuplicateSpace, spaceToWildcard } from '../helpers/texts';
 
 const Op = sequelize.Op;
 
 function getBooks(req, res) {
-  const query = splitQueryToWildcard(req.query.query);
+  const query = spaceToWildcard(req.query.query);
   models.books.findAll({
     where: {
       [Op.or]: [
@@ -35,7 +35,8 @@ function getBooks(req, res) {
     offset: 0,
     limit: 3
   }).then(books => res.render('search', {
-    books
+    books,
+    query: removeDuplicateSpace(req.query.query)
   })
   );
 }
