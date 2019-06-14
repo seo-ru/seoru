@@ -16,6 +16,26 @@
 </head>
 
 <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mt-3">
+                <h1 class="title">서향마루</h1>
+            </div>
+            <div class="col-12">
+                <form action="./search" method="GET">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-1">
+                            <input name="query" class="form-control form-control-lg" type="text" placeholder="">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-lg btn-success" type="submit">검색</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
     <% for(var i = 0; i < books.length; i++) { %>
         <h1><%= books[i].title %></h1>
     <% } %>
