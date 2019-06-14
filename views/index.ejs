@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 
 <head>
@@ -26,13 +26,13 @@
                 <h1 class="title">서향마루</h1>
             </div>
             <div class="col-12">
-                <form>
+                <form action="./search" method="GET">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-1">
-                            <input class="form-control form-control-lg" type="search" placeholder="">
+                            <input name="query" class="form-control form-control-lg" type="text" placeholder="">
                         </div>
                         <div class="col-auto">
-                            <button class="btn btn-lg btn-success" type="submit">검색</button>
+                            <button type="submit" class="btn btn-lg btn-success" type="submit">검색</button>
                         </div>
                     </div>
                 </form>
