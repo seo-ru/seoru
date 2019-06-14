@@ -1,0 +1,16 @@
+﻿@charset "utf-8";
+
+div {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+img {
+    height: 300px;
+    text-align: center;
+}
+
+h1.title {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 72px;
+    font-weight: 800;
+}
