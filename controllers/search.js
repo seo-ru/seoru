@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable guard-for-in */
 import sequelize from 'sequelize';
 
 import models from '../models';
@@ -7,7 +9,10 @@ const Op = sequelize.Op;
 
 function getBooks(req, res) {
   const query = spaceToWildcard(req.query.query);
-  models.books.findAll({
+  const page = (!req.query.page) || (req.query.page < 1) ? 1 : req.query.page;
+  const offset = (page - 1) * 10;
+
+  models.books.findAndCountAll({
     where: {
       [Op.or]: [
         {
@@ -32,13 +37,32 @@ function getBooks(req, res) {
         }
       ]
     },
-    offset: 0,
-    limit: 3
-  }).then(books => res.render('search', {
-    books,
-    query: removeDuplicateSpace(req.query.query)
-  })
-  );
+    offset,
+    limit: 10
+  }).then((result) => {
+    const count = result.count;
+    const pageCount = Math.ceil(result.count / 10);
+
+    res.render('search', {
+      books: result.rows,
+      count,
+      page: req.query.page,
+      pageCount,
+      query: req.query,
+      removeDuplicateSpace,
+      queryToString: (query) => {
+        // https://stackoverflow.com/questions/8562613/how-to-add-url-parameter-to-the-current-url
+        const strArray = [];
+
+        for (const q in query) {
+          strArray.push(`${q}=${query[q]}`);
+        }
+
+        const str = strArray.join('&');
+        return (`?${str}`);
+      }
+    });
+  });
 }
 
 function getBook(req, res) {
