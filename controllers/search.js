@@ -46,7 +46,7 @@ function getBooks(req, res) {
     res.render('search', {
       books: result.rows,
       count,
-      page: req.query.page,
+      page,
       pageCount,
       query: req.query,
       removeDuplicateSpace,
