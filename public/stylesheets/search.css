@@ -6,27 +6,16 @@ div {
 
 h1.title {
     font-family: 'Nanum Myeongjo', serif;
-    font-size: 48px;
+    font-size: 72px;
     font-weight: 800;
 }
 
 a {
+    color: black;
     text-decoration: none;
-}
-
-a:link {
-    color: black;
-}
-
-a:visited {
-    color: black;
-}
-
-a:active {
-    color: black;
 }
 
 a:hover {
-    text-decoration: none;
     color: black;
+    text-decoration: none;
 }
