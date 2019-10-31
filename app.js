@@ -8,6 +8,7 @@ import path from 'path';
 
 import indexRouter from './routes/index';
 import searchRouter from './routes/search';
+import apiRouter from './routes/api';
 
 const app = express();
 const debug = Debug('seoru:app');
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/search', searchRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
